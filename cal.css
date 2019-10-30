@@ -1,0 +1,51 @@
+.out
+{
+  background-color:#868988;
+  height:130px;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius:20px;
+  padding:2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-size: 2em;
+  word-wrap: break-word;
+  overflow-y:scroll;
+  scroll-behavior:smooth;
+}
+.cal
+{
+  border-radius: 20px;
+  border-color: #000000;
+  border-style: groove;
+  border-width: 4px;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: #292E2D;
+}
+
+.button
+{
+  width: 15%;
+  height:50px;
+  margin-bottom: 2%;
+  border-color: #000000;
+  border-style:solid;
+  border-width:1px;
+  background: #818786;
+  border-radius: 5px;
+
+}
+.color
+{
+padding-right:30%;
+padding-left:35%;
+}
+
+.title
+{
+  font-style: italic;
+  font-size: 1.5em;
+  color: #ffffff;
+  text-align: center;
+}
