@@ -2,15 +2,31 @@ window.addEventListener("load",start,false);
 var btns=new Array(31);
 var str="";
 var p;
+var today,h,m,s,title,show,flag=0;
+var histStr="";
+function showHistory() {
+  var history=document.getElementById('history');
+  var rgb=btns[31].value;
+  if(flag==0)
+  {
+    history.setAttribute("style","display:block;background-color:"+rgb);
+    flag=1;
+  }
+  else {
+    history.setAttribute("style","display:none;background-color:"+rgb);
+    flag=0;
+  }
+}
 function start()
  {
-
   for(var i=1;i<=33;i++)
     btns[i]=document.getElementById(i);
+  title=document.getElementsByClassName('title');
+  show=document.getElementById('h');
+  show.addEventListener("click",showHistory)
   ////////////////////////////////////////////////////////////////////////////
   btns[31].addEventListener('input',function() {
     var rgb=btns[31].value;
-    var title=document.getElementsByClassName('title');
     title[0].setAttribute("style","text-shadow:4px 4px "+rgb)
     for(var i=1;i<=30;i++)
         btns[i].style.background=rgb;
@@ -46,10 +62,14 @@ function check() {
     str="";
     p.innerHTML=str;
   },false);
-
+  btns[9].addEventListener('click',function()
+  {
+    str+=btns[9].value;
+    p.innerHTML=str;
+  },false);
   btns[10].addEventListener('click',function()
   {
-    str=Math.sqrt(str);
+    str="Math.sqrt("+str+")";
     p.innerHTML=str;
   },false);
 
@@ -100,7 +120,7 @@ function check() {
   },false);
   btns[20].addEventListener('click',function()
   {
-    str=1/parseInt(str);
+    str="1/"+str;
     p.innerHTML=str;
   },false);
   btns[21].addEventListener('click',function()
@@ -150,7 +170,15 @@ function check() {
   },false);
   btns[30].addEventListener('click',function()
   {
+    var history=document.getElementById('history');
+    today = new Date();
+    h = today.getHours();
+    m = today.getMinutes();
+    s = today.getSeconds();
+    histStr+="<br>"+h+":"+m+":"+s+"    "+str+"=";
     str=eval("("+str+")");
+    histStr+=str;
+    history.innerHTML=histStr;
     p.innerHTML=str;
   },false);
 }
